@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: grid;
-  grid-template-columns: 450px 1fr;
+  grid-template-columns: 60% 1fr;
   height: 100vh;
   section > div {
     min-width: 100%;
@@ -19,10 +19,13 @@ export const Container = styled.div`
     }
   }
   .button-login {
-    background-color: #000000;
+    background-color: #800080;
     color: #f5f5fa;
     &:hover {
-      background-color: #002040;
+      background-color: #a500a5;
     }
+  }
+  .background {
+    background-color: #800080;
   }
 `;

@@ -52,7 +52,7 @@ const SiderAdmin = ({ collapsed, setCollapsed }: ISiderAdmin) => {
             if (key === "/") {
               userLogout();
               notification.success({
-                message: "Até mais! =)",
+                message: "Usuario deslogado com sucesso!",
               });
               router.push("/");
             } else {
@@ -61,22 +61,22 @@ const SiderAdmin = ({ collapsed, setCollapsed }: ISiderAdmin) => {
           }}
           items={[
             {
-              icon: <Dashboard />,
+              icon: <Dashboard size={25} />,
               label: "Dashboard",
               key: "/dashboard/",
             },
             {
-              icon: <Shortcut />,
+              icon: <Shortcut size={25} />,
               label: "Atalhos",
               key: "/dashboard/atalhos",
             },
             {
-              icon: <KeyMultiple />,
+              icon: <KeyMultiple size={25} />,
               label: "Senhas",
               key: "/dashboard/senhas",
             },
             {
-              icon: <LogOutCircle />,
+              icon: <LogOutCircle size={25} />,
               label: "Sair",
               key: "/",
             },

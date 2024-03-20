@@ -22,18 +22,23 @@ const Login = React.memo(function Login() {
     const start = async () => {
       const getCookie = await CookiesHandler.login.get();
       if (getCookie) {
-        setEmail(getCookie.email);
+        setEmail(getCookie.identifier);
         setPassword(getCookie.password);
         setSaveAccess(true);
       }
     };
     start();
   }, []);
+
+  console.log("email", email);
+  console.log("password", password);
+
   const fetchSession = () => {
     if (loading) return false;
     setLoading(true);
+    console.log("passou 1");
     sessionService
-      .login({ login: email, password })
+      .login({ identifier: email, password })
       .then(async res => {
         if (!!saveAccess) {
           CookiesHandler.login.set({
@@ -75,6 +80,15 @@ const Login = React.memo(function Login() {
 
   return (
     <Container>
+      <div>
+        <Image
+          preview={false}
+          src={"/images/plano-fundo.jpg"}
+          alt="AndreBigaran"
+          className="bg"
+        />
+      </div>
+
       <section className="uk-padding-small uk-position-relative">
         {/* <div className="container-logo">
           <img className="logo" src={"/images/"} alt="AndreBigaran" />
@@ -110,7 +124,7 @@ const Login = React.memo(function Login() {
               />
             </div>
             <div className="uk-margin-small uk-flex uk-flex-right">
-              <Link href="/recuperar">Esqueci minha senha</Link>
+              Não tem uma conta? <Link className="uk-margin-small-left" href="/register">Inscrever-se</Link>
             </div>
             <label className="uk-margin-small">
               <input
@@ -130,12 +144,6 @@ const Login = React.memo(function Login() {
           </form>
         </div>
       </section>
-      <Image
-        preview={false}
-        src={"/images/plano-fundo.jpg"}
-        alt="AndreBigaran"
-        className="bg"
-      />
     </Container>
   );
 });
