@@ -53,7 +53,7 @@ const Login = React.memo(function Login() {
           ...res.data.user,
           logged: true,
         });
-        route.push("/dashboard");
+        route.push("/home");
       })
       .catch(err => {
         if (err && err?.response?.data) {
@@ -90,9 +90,9 @@ const Login = React.memo(function Login() {
       </div>
 
       <section className="uk-padding-small uk-position-relative">
-        {/* <div className="container-logo">
-          <img className="logo" src={"/images/"} alt="AndreBigaran" />
-        </div> */}
+        <div className="container-logo">
+          <img className="logo" src={"/images/logo.svg"} alt="NewFake" />
+        </div>
 
         <div className="uk-padding-small uk-flex uk-flex-1 uk-flex-column uk-position-center">
           <h2 className="uk-text-bold">Acessar</h2>
@@ -124,7 +124,7 @@ const Login = React.memo(function Login() {
               />
             </div>
             <div className="uk-margin-small uk-flex uk-flex-right">
-              Não tem uma conta? <Link className="uk-margin-small-left" href="/register">Inscrever-se</Link>
+              Não tem uma conta? <Link className="uk-margin-small-left" href="/">Se ferrou!</Link>
             </div>
             <label className="uk-margin-small">
               <input

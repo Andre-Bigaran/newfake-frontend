@@ -4,7 +4,9 @@ import { useAuth } from "@/infra/context/auth";
 import { useEffect, useState } from "react";
 import Container from "./styles";
 import { Layout, Spin } from "antd";
-import SiderAdmin from "@/components/Sider";
+import SiderLeft from "@/components/SiderLeft";
+import SiderHeader from "@/components/SiderHeader";
+import { Content, Footer, Header } from "antd/es/layout/layout";
 
 export default function LayoutComponent({
   children,
@@ -34,14 +36,19 @@ export default function LayoutComponent({
   return (
     <Container>
       <Layout style={{ minHeight: "100vh" }}>
-        <SiderAdmin collapsed={collapsed} setCollapsed={setCollapsed} />
-        <Layout
-          className="site-layout"
-          style={{
-            marginLeft: collapsed ? 80 : 250,
-          }}
-        >
-          <Layout.Content>{children}</Layout.Content>
+        <SiderLeft collapsed={collapsed} setCollapsed={setCollapsed} />
+
+        <Layout>
+          <SiderHeader />
+          <Content
+            className="site-layout"
+            style={{
+              marginLeft: 60,
+              marginRight: 60,
+            }}
+          >
+            {children}
+          </Content>
         </Layout>
       </Layout>
     </Container>

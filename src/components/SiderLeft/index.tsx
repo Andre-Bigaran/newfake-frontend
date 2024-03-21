@@ -4,41 +4,40 @@ import Link from "next/link";
 
 import { Container } from "./styles";
 import { Dashboard } from "@styled-icons/boxicons-solid/Dashboard";
-import { LogOutCircle } from "@styled-icons/boxicons-regular/LogOutCircle";
-import { KeyMultiple } from "@styled-icons/fluentui-system-filled/KeyMultiple";
-import { Shortcut } from "@styled-icons/material-outlined/Shortcut";
+
 import { useAuth } from "@/infra/context/auth";
 import { useRouter } from "next/navigation";
+import { QuestionSquareFill } from "@styled-icons/bootstrap/QuestionSquareFill";
+import { Users } from "@styled-icons/fa-solid/Users";
+import { Tags } from "@styled-icons/fa-solid/Tags";
+import { Business } from "@styled-icons/ionicons-solid/Business";
 
 const { Sider } = Layout;
 
-interface ISiderAdmin {
+interface ISider {
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
 }
 
-const SiderAdmin = ({ collapsed, setCollapsed }: ISiderAdmin) => {
+const SiderLeft = ({ collapsed }: ISider) => {
   const { userLogout } = useAuth();
   const router = useRouter();
   return (
     <Container>
       <Sider
-        collapsible
         width={250}
-        collapsed={collapsed}
-        onCollapse={() => setCollapsed(!collapsed)}
         style={{
           overflow: "auto",
           height: "100vh",
-          position: "fixed",
           left: 0,
           backgroundColor: "#FFFAFA",
         }}
       >
-        <Link href="/admin">
+        <Link href="/home">
           <Image
-            src={collapsed ? "/images/favicon.jpg" : "/images/logo.png"}
-            width={collapsed ? 60 : 180}
+            preview={false}
+            src={"/images/logo.svg"}
+            width={130}
             className="logo pointer"
             alt="logo"
           />
@@ -62,23 +61,28 @@ const SiderAdmin = ({ collapsed, setCollapsed }: ISiderAdmin) => {
           items={[
             {
               icon: <Dashboard size={25} />,
-              label: "Dashboard",
-              key: "/dashboard/",
+              label: "Home",
+              key: "/home/",
             },
             {
-              icon: <Shortcut size={25} />,
-              label: "Atalhos",
-              key: "/dashboard/atalhos",
+              icon: <QuestionSquareFill size={25} />,
+              label: "Dúvidas",
+              key: "/home/duvidas",
             },
             {
-              icon: <KeyMultiple size={25} />,
-              label: "Senhas",
-              key: "/dashboard/senhas",
+              icon: <Tags size={25} />,
+              label: "Categorias",
+              key: "/home/categorias",
             },
             {
-              icon: <LogOutCircle size={25} />,
-              label: "Sair",
-              key: "/",
+              icon: <Users size={25} />,
+              label: "Usuários",
+              key: "/home/usuarios",
+            },
+            {
+              icon: <Business size={25} />,
+              label: "Empresas",
+              key: "/home/empresas",
             },
           ]}
         />
@@ -87,4 +91,4 @@ const SiderAdmin = ({ collapsed, setCollapsed }: ISiderAdmin) => {
   );
 };
 
-export default SiderAdmin;
+export default SiderLeft;

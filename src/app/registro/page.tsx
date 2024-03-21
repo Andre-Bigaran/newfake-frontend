@@ -53,7 +53,7 @@ const Register = React.memo(function Register() {
           ...res.data.user,
           logged: true,
         });
-        route.push("/dashboard");
+        route.push("/home");
       })
       .catch(err => {
         if (err && err?.response?.data) {

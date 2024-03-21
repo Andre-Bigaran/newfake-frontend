@@ -25,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
 
     :root {
         --gray: #b5b6cd;
-        --blue: #1d8db9;
+        --blue: #800080;
         --purple: #4765cc;
         --lightPurple: #6483ec;
         --green: #77c285;
@@ -46,6 +46,9 @@ export const GlobalStyle = createGlobalStyle`
         }
     }
 
+    .pointer {
+        cursor: pointer;
+    }
     
 
     *:focus {
