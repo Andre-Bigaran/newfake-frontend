@@ -6,7 +6,7 @@ import Container from "./styles";
 import { Layout, Spin } from "antd";
 import SiderLeft from "@/components/SiderLeft";
 import SiderHeader from "@/components/SiderHeader";
-import { Content, Footer, Header } from "antd/es/layout/layout";
+import { Content } from "antd/es/layout/layout";
 
 export default function LayoutComponent({
   children,

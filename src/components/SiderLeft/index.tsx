@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-empty-pattern
 import React from "react";
 import { Image, Layout, Menu, notification } from "antd";
 import Link from "next/link";
@@ -18,8 +19,8 @@ interface ISider {
   collapsed: boolean;
   setCollapsed: (collapsed: boolean) => void;
 }
-
-const SiderLeft = ({ collapsed }: ISider) => {
+// eslint-disable-next-line no-empty-pattern
+const SiderLeft = ({}: ISider) => {
   const { userLogout } = useAuth();
   const router = useRouter();
   return (
