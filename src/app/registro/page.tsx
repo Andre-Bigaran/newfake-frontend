@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { Image, notification } from "antd";
 import { Container } from "../styles";
-import Link from "next/link";
 import { sessionService } from "@/infra/services/session.service";
 import { useAuth } from "@/infra/context/auth";
 import { CookiesHandler } from "@/infra/cookies";
@@ -30,13 +29,9 @@ const Register = React.memo(function Register() {
     start();
   }, []);
 
-  console.log("email", email);
-  console.log("password", password);
-
   const fetchSession = () => {
     if (loading) return false;
     setLoading(true);
-    console.log("passou 1");
     sessionService
       .login({ identifier: email, password })
       .then(async res => {
@@ -123,7 +118,7 @@ const Register = React.memo(function Register() {
                 required
               />
             </div>
-           
+
             <button
               type="submit"
               className="uk-input uk-button uk-width-1-1 uk-margin-top btnDefault button-login"

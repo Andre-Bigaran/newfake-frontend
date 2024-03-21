@@ -30,13 +30,9 @@ const Login = React.memo(function Login() {
     start();
   }, []);
 
-  console.log("email", email);
-  console.log("password", password);
-
   const fetchSession = () => {
     if (loading) return false;
     setLoading(true);
-    console.log("passou 1");
     sessionService
       .login({ identifier: email, password })
       .then(async res => {
@@ -91,7 +87,7 @@ const Login = React.memo(function Login() {
 
       <section className="uk-padding-small uk-position-relative">
         <div className="container-logo">
-          <img className="logo" src={"/images/logo.svg"} alt="NewFake" />
+          <Image className="logo" src={"/images/logo.svg"} alt="NewFake" />
         </div>
 
         <div className="uk-padding-small uk-flex uk-flex-1 uk-flex-column uk-position-center">
@@ -124,7 +120,10 @@ const Login = React.memo(function Login() {
               />
             </div>
             <div className="uk-margin-small uk-flex uk-flex-right">
-              Não tem uma conta? <Link className="uk-margin-small-left" href="/">Se ferrou!</Link>
+              Não tem uma conta?{" "}
+              <Link className="uk-margin-small-left" href="/">
+                Se ferrou!
+              </Link>
             </div>
             <label className="uk-margin-small">
               <input
