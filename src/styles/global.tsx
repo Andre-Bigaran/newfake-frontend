@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
             outline: 0px solid transparent !important
         }
     }
-
+ 
     html, body, #root {
         height: 100vh;
     }
