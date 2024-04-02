@@ -1,10 +1,11 @@
 import React from "react";
-import { Dropdown, Layout, Menu, notification } from "antd";
+import { Dropdown, Image, Layout, Menu, notification } from "antd";
 import { CircleUser } from "@styled-icons/fa-solid/CircleUser";
 import { LogOutCircle } from "@styled-icons/boxicons-regular/LogOutCircle";
 import { LinkExternal } from "@styled-icons/boxicons-regular/LinkExternal";
 import { useAuth } from "@/infra/context/auth";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const { Header } = Layout;
 
@@ -49,18 +50,34 @@ const SiderHeader: React.FC = () => {
   return (
     <Header
       style={{
+        zIndex: 1,
+        top: 0,
         display: "flex",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         paddingRight: "80px",
         backgroundColor: "#FFFAFA",
+        position: "sticky",
       }}
     >
-      <Dropdown overlay={menu} placement="bottomRight" className="pointer">
-        <span>
-          <CircleUser size={25} style={{ verticalAlign: "middle" }} />
-          &nbsp; Profile
-        </span>
-      </Dropdown>
+      <div>
+        <Link href="/home">
+          <Image
+            preview={false}
+            src={"/images/logo.svg"}
+            width={130}
+            className="logo pointer"
+            alt="logo"
+          />
+        </Link>
+      </div>
+      <div>
+        <Dropdown overlay={menu} placement="bottomRight" className="pointer">
+          <span>
+            <CircleUser size={25} style={{ verticalAlign: "middle" }} />
+            &nbsp; Profile
+          </span>
+        </Dropdown>
+      </div>
     </Header>
   );
 };

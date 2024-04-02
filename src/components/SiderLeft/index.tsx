@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-empty-pattern
 import React from "react";
-import { Image, Layout, Menu, notification } from "antd";
+import { Divider, Image, Layout, Menu, notification } from "antd";
 import Link from "next/link";
 
 import { Container } from "./styles";
@@ -30,19 +30,13 @@ const SiderLeft = ({}: ISider) => {
         style={{
           overflow: "auto",
           height: "100vh",
+          position: "fixed",
           left: 0,
+          top: 50,
+          bottom: 0,
           backgroundColor: "#FFFAFA",
         }}
       >
-        <Link href="/home">
-          <Image
-            preview={false}
-            src={"/images/logo.svg"}
-            width={130}
-            className="logo pointer"
-            alt="logo"
-          />
-        </Link>
         <Menu
           mode="inline"
           style={{

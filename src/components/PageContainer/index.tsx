@@ -27,7 +27,10 @@ const PageContainer: FC<PageContainerProps> = ({
   const router = useRouter();
 
   return (
-    <div className={`${container ? container : "uk-container"} uk-padding`}>
+    <div
+      className={`${container ? container : "uk-container"} uk-padding`}
+      style={{ overflow: "initial", marginLeft: 250 }}
+    >
       {!!title && (
         <>
           <div className={`uk-flex  uk-flex-between uk-flex-middle`}>

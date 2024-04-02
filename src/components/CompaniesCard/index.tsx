@@ -16,7 +16,7 @@ const CompaniesCard: React.FC = () => {
           <Card>
             <Space align="center">
               <Avatar shape="square" size={120} icon={<UserOutlined />} />
-              <div>
+              <div className="uk-margin-left">
                 <Title level={4}>Nome da Empresa</Title>
                 <Text> Uma breve descrição a respeito da empresa</Text>
                 <br />

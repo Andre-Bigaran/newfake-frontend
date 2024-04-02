@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import { Row, Col, Card, Typography } from "antd";
+import CarouselBanner from "./CarouselBanner";
 
 const { Title, Text } = Typography;
 
@@ -9,20 +10,13 @@ const BannerHome: React.FC = () => {
   return (
     <div>
       {/* Banner */}
-      <div
-        style={{ width: "100%", height: "400px", backgroundColor: "lightblue" }}
-      >
-        {/* Content inside banner (optional) */}
-      </div>
+      <CarouselBanner />
 
       {/* Content below banner */}
       <Row gutter={[16, 16]} style={{ marginTop: "24px" }}>
         {/* First column with banner */}
         <Col span={16}>
-          <Card style={{ height: "200px", textAlign: "center" }}>
-            {/* Banner content */}
-            Banner 1
-          </Card>
+          <CarouselBanner />
         </Col>
 
         {/* Second column with title, description, user, and date */}
@@ -40,22 +34,13 @@ const BannerHome: React.FC = () => {
       </Row>
       <Row gutter={[16, 16]} style={{ marginTop: "24px" }}>
         <Col span={8}>
-          <Card style={{ height: "200px", textAlign: "center" }}>
-            {/* Banner content */}
-            Banner 1
-          </Card>
+          <CarouselBanner />
         </Col>
         <Col span={8}>
-          <Card style={{ height: "200px", textAlign: "center" }}>
-            {/* Banner content */}
-            Banner 1
-          </Card>
+          <CarouselBanner />
         </Col>
         <Col span={8}>
-          <Card style={{ height: "200px", textAlign: "center" }}>
-            {/* Banner content */}
-            Banner 1
-          </Card>
+          <CarouselBanner />
         </Col>
       </Row>
       <Row gutter={[16, 16]}>
