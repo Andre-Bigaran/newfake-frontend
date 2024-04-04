@@ -11,7 +11,7 @@ const CompaniesCard: React.FC = () => {
     <div>
       {/* Content below banner */}
       <Row gutter={[16, 16]} style={{ marginTop: "24px" }}>
-        {/* First column with banner */}
+        {/* First column with banner aaa*/}
         <Col span={24}>
           <Card>
             <Space align="center">

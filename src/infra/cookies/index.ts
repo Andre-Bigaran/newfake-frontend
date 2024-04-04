@@ -2,7 +2,7 @@ import { ILogin } from "@/interfaces/ILogin";
 import { IUser } from "@/interfaces/IUser";
 import Cookies from "js-cookie";
 
-const applicationName = "MODEL";
+const applicationName = "NEWFAKE";
 
 const COOKIES_TYPES = {
   SESSION: applicationName + "$S",

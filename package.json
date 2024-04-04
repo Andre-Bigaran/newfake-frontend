@@ -1,5 +1,5 @@
 {
-  "name": "projeto-modelo-next-typescript",
+  "name": "projeto-modelo",
   "version": "0.1.0",
   "owner": "AndreBigaran",
   "author": "AndreBigaran",
@@ -8,8 +8,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "lint": "next lint",
     "format": "prettier --check --ignore-path .gitignore .",
-    "format:fix": "prettier --write --ignore-path .gitignore ."
+    "format:fix": "prettier --write --ignore-path .gitignore .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.4",

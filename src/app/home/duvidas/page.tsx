@@ -1,4 +1,4 @@
-import PageContainer from "@/components/PageContainer";
+import Questions from "@/components/Questions";
 export default function Page() {
-  return <PageContainer title="Duvidas">Teste</PageContainer>;
+  return <Questions />;
 }

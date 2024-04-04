@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { notification } from "antd";
 
-export const URLFiles = "https://app-api.sinclairpharma.com.br/files/";
+export const URLFiles = process?.env?.NEXT_PUBLIC_API?.replace("/api", "");
 
 const api = () => {
   const defaultOptions = {
@@ -17,10 +17,9 @@ const api = () => {
 
   const instance = axios.create(defaultOptions);
 
-  // if (typeof window !== "undefined") {
   instance.interceptors.request.use(function (config) {
-    const token = Cookies.get("SS$S");
-    if (token) {
+    const token = Cookies.get("NEWFAKE$S");
+    if (token && config.url !== "/auth/local") {
       const sessionParsed = JSON.parse(token);
       if (sessionParsed && sessionParsed.token) {
         config.headers.Authorization = `Bearer ${sessionParsed.token}`;
@@ -31,8 +30,8 @@ const api = () => {
   });
 
   instance.interceptors.response.use(
-    function (config) {
-      return config;
+    function (response) {
+      return response;
     },
     function (error) {
       const status = error?.response?.status;

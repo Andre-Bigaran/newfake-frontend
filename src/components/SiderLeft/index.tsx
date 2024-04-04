@@ -65,11 +65,6 @@ const SiderLeft = ({}: ISider) => {
               key: "/home/duvidas",
             },
             {
-              icon: <Tags size={25} />,
-              label: "Categorias",
-              key: "/home/categorias",
-            },
-            {
               icon: <Users size={25} />,
               label: "Usuários",
               key: "/home/usuarios",
