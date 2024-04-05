@@ -4,7 +4,7 @@ const nextConfig = {
     styledComponents: true,
   },
   typescript: {
-    ignoreBuildErrors: true
+    ignoreBuildErrors: true,
   }
 };
 
