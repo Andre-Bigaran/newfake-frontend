@@ -122,7 +122,7 @@ const Login = React.memo(function Login() {
             <div className="uk-margin-small uk-flex uk-flex-right">
               Não tem uma conta?{" "}
               <Link className="uk-margin-small-left" href="/">
-                Se ferrou!
+                Registrar-se agora.
               </Link>
             </div>
             <label className="uk-margin-small">
