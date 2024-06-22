@@ -10,7 +10,7 @@ import Link from "next/link";
 const { Header } = Layout;
 
 const SiderHeader: React.FC = () => {
-  const { userLogout } = useAuth();
+  const { user, userLogout } = useAuth();
   const router = useRouter();
 
   const handleMenuClick = ({ key }: { key: string }) => {
@@ -27,14 +27,14 @@ const SiderHeader: React.FC = () => {
 
   const menu = (
     <Menu onClick={handleMenuClick}>
-      <Menu.Item key="/perfil/">
+      {/* <Menu.Item key="/perfil/">
         <LinkExternal
           size={15}
           style={{ verticalAlign: "middle" }}
           className="uk-margin-small-right"
         />
         Visualizar Perfil
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item key="/">
         <LogOutCircle
           size={15}
@@ -74,7 +74,7 @@ const SiderHeader: React.FC = () => {
         <Dropdown overlay={menu} placement="bottomRight" className="pointer">
           <span>
             <CircleUser size={25} style={{ verticalAlign: "middle" }} />
-            &nbsp; Profile
+            &nbsp; {user.username ? user.username : "Profile"}
           </span>
         </Dropdown>
       </div>

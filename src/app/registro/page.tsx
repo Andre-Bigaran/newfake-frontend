@@ -7,6 +7,7 @@ import { sessionService } from "@/infra/services/session.service";
 import { useAuth } from "@/infra/context/auth";
 import { CookiesHandler } from "@/infra/cookies";
 import { useRouter } from "next/navigation";
+import { userService } from "@/infra/services/user.service";
 
 const Register = React.memo(function Register() {
   const { userHandle } = useAuth();
@@ -14,6 +15,7 @@ const Register = React.memo(function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [nickName, setNickname] = useState("");
 
   const [saveAccess, setSaveAccess] = useState(false);
 
@@ -32,29 +34,24 @@ const Register = React.memo(function Register() {
   const fetchSession = () => {
     if (loading) return false;
     setLoading(true);
-    sessionService
-      .login({ identifier: email, password })
+    userService
+      .create({ email: email, password, username: nickName, role: 1 })
       .then(async res => {
-        if (!!saveAccess) {
-          CookiesHandler.login.set({
-            email,
-            password,
-          });
-        } else {
-          CookiesHandler.login.remove();
-        }
         await userHandle({
           token: res.data.jwt,
           ...res.data.user,
           logged: true,
         });
-        route.push("/home");
+        route.push("/");
+        notification.success({
+          message: "Usuário criado com sucesso!",
+        });
       })
       .catch(err => {
         if (err && err?.response?.data) {
           if (
             err?.response?.data?.error?.message ===
-            "identifier is a required field"
+            "identificador é um campo obrigatório"
           ) {
             notification.error({
               message: "Email é um campo obrigatório",
@@ -66,7 +63,7 @@ const Register = React.memo(function Register() {
           }
         } else {
           notification.error({
-            message: "Alguma coisa deu errado no hora de logar",
+            message: "Alguma coisa deu errado no hora de criar usuário",
           });
         }
       })
@@ -85,9 +82,9 @@ const Register = React.memo(function Register() {
       </div>
 
       <section className="uk-padding-small uk-position-relative">
-        {/* <div className="container-logo">
-          <img className="logo" src={"/images/"} alt="AndreBigaran" />
-        </div> */}
+        <div className="container-logo">
+          <Image className="logo" src={"/images/logo.svg"} alt="NewFake" />
+        </div>
 
         <div className="uk-padding-small uk-flex uk-flex-1 uk-flex-column uk-position-center">
           <h2 className="uk-text-bold">Registrar</h2>
@@ -99,6 +96,18 @@ const Register = React.memo(function Register() {
             autoComplete="off"
           >
             <div className="uk-margin-small-bottom">
+              <label>Apelido: </label>
+              <input
+                className="uk-input"
+                value={nickName}
+                onChange={e => setNickname(e.target.value)}
+                type="text"
+                placeholder="Digite seu apelido"
+                required
+              />
+            </div>
+            <div className="uk-margin-small-bottom">
+              <label>Email: </label>
               <input
                 className="uk-input"
                 value={email}
@@ -109,6 +118,7 @@ const Register = React.memo(function Register() {
               />
             </div>
             <div>
+              <label>Senha: </label>
               <input
                 className="uk-input"
                 value={password}
