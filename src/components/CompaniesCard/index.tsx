@@ -2,33 +2,39 @@
 "use client";
 import { UserOutlined, EnvironmentOutlined } from "@ant-design/icons";
 import React from "react";
-import { Row, Col, Card, Typography, Avatar, Space, Tag } from "antd";
+import { Row, Col, Card, Typography, Avatar, Space, Tag, Image } from "antd";
 
 const { Title, Text } = Typography;
 
 const CompaniesCard: React.FC = () => {
   return (
     <div>
-      {/* Content below banner */}
       <Row gutter={[16, 16]} style={{ marginTop: "24px" }}>
-        {/* First column with banner aaa*/}
         <Col span={24}>
           <Card>
             <Space align="center">
-              <Avatar shape="square" size={120} icon={<UserOutlined />} />
+              <Image
+                preview={false}
+                src={"/images/unifil-logo.png"}
+                width={120}
+                className="logo pointer"
+                alt="logo"
+              />
               <div className="uk-margin-left">
-                <Title level={4}>Nome da Empresa</Title>
-                <Text> Uma breve descrição a respeito da empresa</Text>
+                <Title level={4}>Centro Universitário Filadélfia</Title>
+                <Text>
+                  Instituição de ensino superior particular e confessional do
+                  Brasilsa
+                </Text>
                 <br />
                 <Text>
-                  <EnvironmentOutlined /> Cidade/Estado
+                  <EnvironmentOutlined /> Londrina - PR
                 </Text>
                 <br />
 
                 <Text>
-                  <Tag>Tag1</Tag>
-                  <Tag>Tag2</Tag>
-                  {/* Adicione mais tags conforme necessário */}
+                  <Tag color="purple">Empresa</Tag>
+                  <Tag color="magenta">Universidade</Tag>
                 </Text>
               </div>
             </Space>
